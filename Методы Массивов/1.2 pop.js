@@ -14,3 +14,25 @@ console.log(removedElementWithPop);
 // Удобен для работы с последним массиво
 // Изменяет оригинальный массив
 // Если массив пустой, вернет undefined
+
+// pop - удаляет с конца массива
+
+function myPop(arr) {
+  const lastItem = arr[arr.length - 1]
+  arr.length = arr.length - 1;
+  return lastItem;
+}
+
+const test = [1, 2, 3, 4, 5, 6];
+
+console.log(myPop(test))
+console.log(test)
+
+// через прототипы
+Array.prototype.mypop = function () {
+  const lastItem = this[this.length - 1]
+  this.length = this.length - 1
+  return lastItem
+}
+
+console.log(test.mypop())
