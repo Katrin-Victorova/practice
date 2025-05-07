@@ -52,3 +52,15 @@ if (age >= 18) {
  * NaN (не число)
  */
 
+// if использование в функциях
+const sumPositiveNumbers = (a, b) => {
+  if (typeof a !== "number" || typeof b !== "number") {
+      return `One of the arguments is not a number`
+  }
+  if (a <= 0 || b <= 0) {
+      return `Numbers are not positive`
+  }
+  return a + b
+}
+
+console.log(sumPositiveNumbers(5, 5)) // 1-("a", true) 2-(-10, 5)

@@ -15,3 +15,9 @@ numbers.forEach((num, index) => {
 // Читаемый и удобный синтаксис
 // Нельзя выйти из цикла (в отличие от for или for..of)
 // Не подходит для сложных операций, трубующиз возврата нового массива
+const myArray = [1, 2, 3]
+console.log(myArray)
+
+myArray.forEach((el) => console.log(el * 2)) 
+// не изменяет оригинальный массив
+console.log(myArray)
