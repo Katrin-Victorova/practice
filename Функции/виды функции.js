@@ -69,7 +69,19 @@ console.log(getSum(3, 7)); // 10
 
 // Анонимные функции (Anonymous Functions):
 // Функции без имени, часто используются как аргументы для других функций.
-
+// 1
 setTimeout(function() {
   console.log("Прошло 2 секунды");
 }, 2000);
+
+// 2
+function fnWithCallback(callbackFunction) {
+    callbackFunction()
+}
+fnWithCallback(anotherFunction)
+
+// 3
+function printMyName() {
+    console.log("Katrin")
+}
+setTimeout(printMyName, 1000) // встроенная Fn

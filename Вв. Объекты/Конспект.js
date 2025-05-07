@@ -253,4 +253,17 @@ console.log(usersIntorm?.address?.street);
 // Важно отметить, что structuredClone не являеться частью стандартна JS
 // и его поддержка может отличаться в разных окружениях выполнения JS
 
-// Рукурсия ?!
+// Рекурсия ?!
+
+// в таблицк соединить обьекты ...
+const button = {
+  width: 200,
+  text: "Buy"
+}
+
+const redButton = {
+  ...button,
+  color: "red"
+}
+
+console.table(redButton)
