@@ -21,3 +21,13 @@ console.log(myArray)
 myArray.forEach((el) => console.log(el * 2)) 
 // не изменяет оригинальный массив
 console.log(myArray)
+
+// forEach для обьектов
+let myObject = {
+    x: 10,
+    y: true,
+    z: "abc"
+}
+
+Object.keys(myObject).forEach(key => console.log(key, myObject[key]))
+// Object.values(myObject).forEach(value => console.log(value))
