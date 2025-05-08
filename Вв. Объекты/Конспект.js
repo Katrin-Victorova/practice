@@ -267,3 +267,11 @@ const redButton = {
 }
 
 console.table(redButton)
+
+// Методы keys и values для обьектов
+
+Object.keys({name: "Katrin", age: 22})
+// Получаем на выходе: (2) ['name', 'age']
+
+Object.values({name: "Maks", age: 22})
+// Получаем на выходе: (2) ['Maks', 22]
