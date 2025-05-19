@@ -81,3 +81,79 @@ let obj = {
 
 let fn = obj.sayHi; // скопировали функциию без контекста
 fn(); // undefined
+
+let users3 = {
+	name: 'John',
+	age: 30,
+	sayHi() {
+		console.log(this.name);
+	},
+};
+
+let admin = users3;
+users3 = null;
+admin.sayHi(); // 'John'
+
+const personArr = {
+	name: 'Bob',
+	greet: () => {
+		console.log(`Hello, ${this.name}!`);
+	},
+};
+
+personArr.greet(); // нет своего this у стрелочной =>
+
+const personSet = {
+	name: 'Lily',
+	greet: function () {
+		setTimeout(() => {
+			console.log(`Hello, ${this.name}!`);
+		}, 1000);
+	},
+};
+
+personSet.greet(); // Hello, Lily!
+
+const obg46 = {
+	name: 'John',
+	printName() {
+		console.log(this.name);
+	},
+	delayedPrintName() {
+		// setTimeout(this.printName, 1000) // undefined
+		// setTimeout(this.printName.bind(this), 1000) // John
+		// setTimeout(() => this.printName(), 1000) // John
+	},
+};
+
+obg46.delayedPrintName(); // undefined
+
+let obj2 = { a: 1, b: undefined };
+
+console.log('b' in obj2); // ?\есть ли в обьекте 2 ? true
+console.log(obj2.c !== undefined); // такого не "c" не существует false
+
+// freeze - "замораживает" объект, делая его неизменяемым
+// Поверхностная заморозка: вложенные объекты не затрагиваются.
+// Возвращает исходный объект (не копию).
+const obj66 = { a: 1, b: { c: 2 } };
+Object.freeze(obj66);
+obj66.a = 100; // Игнорируется (ошибка в strict mode)
+obj66.b.c = 200; // Работает (вложенный объект не заморожен)
+
+const obj1 = { a: 1, b: 2 };
+Object.freeze(obj1);
+obj1.a = 3;
+
+console.log(obj1.a); // 1
+
+// вывести все ключи обьекта в массиве (массив ключей)
+const user1 = {
+	name: 'Alise',
+	age: 25,
+	job: 'Developer',
+};
+
+for (let value of Object.keys(user1)) {
+	console.log(value);
+}
