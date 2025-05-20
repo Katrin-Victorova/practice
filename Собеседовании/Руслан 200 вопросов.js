@@ -157,3 +157,71 @@ const user1 = {
 for (let value of Object.keys(user1)) {
 	console.log(value);
 }
+
+let arr = [1, 2, 3, 4];
+let newArr = arr.map(x => x * 2);
+console.log(newArr); // копия массива [ 2, 4, 6, 8 ]
+console.log(arr); // не измениться [ 1, 2, 3, 4 ]
+
+let arr2 = [1, 2, 3];
+delete arr2[1];
+console.log(arr2); // [ 1, <1 empty item>, 3 ]
+console.log(arr2.length); // 3
+
+let arr3 = [1, 2, 3, 4, 5];
+arr3.length = 3;
+
+console.log(arr3); // [ 1, 2, 3 ]
+
+let arr6 = [1, 2, 3, 4, 5];
+arr6.splice(2, 1);
+
+console.log(arr6); // удаляем 1 элемент [ 1, 2, 4, 5 ]
+
+let arr11 = [1, 2, 3, 4, 5];
+let result11 = arr11.pop();
+
+console.log(result11); // 5
+console.log(arr11); // [ 1, 2, 3, 4 ]
+
+let arr12 = [1, 2, 3];
+let result12 = arr12.push(4, 5);
+
+console.log(result12); // push возвращает длину 5
+console.log(arr12); // [ 1, 2, 3, 4, 5 ]
+
+const person44 = { name: 'Alice', age: 25 };
+const { name, age, city = 'Unkbown' } = person44;
+
+console.log(city); // Unkbown
+
+const arr8 = [1, 2, 3, 4, 5];
+const [first, ...rest] = arr8;
+// const [first, , ...rest] = arr8
+
+console.log(rest); // [ 2, 3, 4, 5 ]
+// console.log(rest) // [ 3, 4, 5 ] пропустили элементы ,
+
+const userD = { name: 'Alice', age: 25 };
+const newUser = { ...userD, age: 30 };
+
+console.log(newUser); // Alice 30
+
+const str = 'Hello';
+const strArray = [...str];
+
+console.log(strArray); // [ 'H', 'e', 'l', 'l', 'o' ]
+
+const obg11 = { a: 1, b: 2 };
+const combinedObg = { ...obg11 };
+console.log(obg11.a); // 1 поверхностная копия
+
+const array1 = [1, 2, 3];
+const array2 = [0, ...array1, 4];
+console.log(array2); // [ 0, 1, 2, 3, 4 ]
+
+function sum(a, b, ...rest) {
+	console.log(rest);
+}
+
+console.log(sum(1, 2, 3, 4)); // [ 3, 4 ] undefined
