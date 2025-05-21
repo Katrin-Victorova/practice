@@ -1,9 +1,9 @@
 // Цикл while выполняет блок кода до тех пор, пока условие истинно (true).
 // Когда условие становится ложным (false), выполнение цикла прекращается.
-let i = 1
+let i = 1;
 while (i <= 5) {
-	console.log(i)
-	i++ // увеличиваем значение i на 1
+	console.log(i);
+	i++; // увеличиваем значение i на 1
 }
 // 1
 // 2
@@ -16,31 +16,31 @@ while (i <= 5) {
 // Цикл do...while похож на цикл while, но его отличие в том, что условие
 // проверяется после выполнения тела цикла. Это означает, что цикл всегда
 // выполнится хотя бы один раз, даже если условие ложно.
-let k = 1
+let k = 1;
 do {
-	console.log(k)
-	k++
-} while (k <= 5)
+	console.log(k);
+	k++;
+} while (k <= 5);
 // 1
 // 2
 // 3
 // 4
 // 5
-let l = 6
+let l = 6;
 do {
-	console.log(l)
-	l++
-} while (l <= 5) // ложное
+	console.log(l);
+	l++;
+} while (l <= 5); // ложное
 // 6
 // Тело цикла выполнится один раз, потому что условие проверяется после выполнения.
 
-// икл for удобен, когда известна точная последовательность
+// Цикл for удобен, когда известна точная последовательность
 // повторений. Он состоит из трёх частей:
 // Инициализация — происходит один раз перед началом цикла.
 // Условие — проверяется перед каждой итерацией.
 // Шаг — выполняется после каждой итерации (обычно увеличение или уменьшение счетчика).
 for (let i = 1; i <= 5; i++) {
-	console.log(i)
+	console.log(i);
 }
 // 1
 // 2
@@ -56,7 +56,7 @@ for (let i = 1; i <= 5; i++) {
 // например, работать с многомерными массивами или таблицами.
 for (let i = 1; i <= 3; i++) {
 	for (let j = 1; j <= 3; j++) {
-		console.log(`${i} * ${j} = ${i * j}`)
+		console.log(`${i} * ${j} = ${i * j}`);
 	}
 }
 // 1 * 1 = 1
@@ -74,36 +74,36 @@ for (let i = 1; i <= 3; i++) {
 // ​​​​continue​​​​ — прерывает текущую итерацию и переходит к следующей.
 for (let i = 1; i <= 5; i++) {
 	if (i === 3) {
-		break // цикл прерывается, как только i равно 3
+		break; // цикл прерывается, как только i равно 3
 	}
-	console.log(i)
+	console.log(i);
 } // 1 2
 
 for (let i = 1; i <= 5; i++) {
 	if (i === 3) {
-		continue // текущая итерация пропускается, и цикл продолжает выполнение
+		continue; // текущая итерация пропускается, и цикл продолжает выполнение
 	}
-	console.log(i)
+	console.log(i);
 } // 1 2 4 5
 
 // Любая часть for может быть пропущена.
-let ii = 0 // мы уже имеем объявленную i с присвоенным значением
+let ii = 0; // мы уже имеем объявленную i с присвоенным значением
 
 for (; ii < 3; ii++) {
 	// нет необходимости в "начале"
-	alert(ii) // 0, 1, 2
+	alert(ii); // 0, 1, 2
 }
 
-let ie = 0
+let ie = 0;
 
 for (; ie < 3; ) {
-	alert(ie++)
+	alert(ie++);
 } // Это сделает цикл аналогичным while (i < 3).
 
 // перебор массива с лево на право
-const array = ['a', 'b', 'c']
+const array = ['a', 'b', 'c'];
 for (let i = array.length; i > 0; i--) {
-	console.log([i - 1])
+	console.log([i - 1]);
 } // c b a
 
 // А можно и вообще убрать всё, получив бесконечный цикл:
@@ -134,11 +134,11 @@ const user = {
 	name: 'Alice',
 	age: 30,
 	city: 'New York',
-}
+};
 
 for (let key in user) {
-	console.log(key) // выводит ключи: "name", "age", "city"
-	console.log(user[key]) // выводит значения: "Alice", 30, "New York"
+	console.log(key); // выводит ключи: "name", "age", "city"
+	console.log(user[key]); // выводит значения: "Alice", 30, "New York"
 }
 // Здесь переменная key перебирает все ключи объекта user
 // (name, age, city), а значение свойства объекта можно получить с помощью user[key].
@@ -146,11 +146,11 @@ for (let key in user) {
 // Перебор массива
 // Хотя for...in можно использовать для перебора массивов, это не рекомендуется,
 // так как он работает по индексам, а не по значениям массива:
-const arr = [10, 20, 30]
+const arr = [10, 20, 30];
 
 for (let index in arr) {
-	console.log(index) // выводит индексы: 0, 1, 2
-	console.log(arr[index]) // выводит значения: 10, 20, 30
+	console.log(index); // выводит индексы: 0, 1, 2
+	console.log(arr[index]); // выводит значения: 10, 20, 30
 }
 
 // Используется для перебора ключей объекта.
@@ -164,34 +164,34 @@ for (let index in arr) {
 
 // Перебор массива
 // Используем for...of, чтобы вывести все элементы массива:
-const arrm = [10, 20, 30]
+const arrm = [10, 20, 30];
 
 for (let value of arrm) {
-	console.log(value) // выводит: 10, 20, 30
+	console.log(value); // выводит: 10, 20, 30
 }
 // Здесь переменная value перебирает значения массива (10, 20, 30), а не индексы.
 
 // Перебор строки
 // Цикл for...of также можно использовать для перебора строк:
-const str = 'Hello'
+const str = 'Hello';
 
 for (let char of str) {
-	console.log(char) // выводит: H, e, l, l, o
+	console.log(char); // выводит: H, e, l, l, o
 }
 // Перебирает значения, а не ключи или индексы.
 
-let result = ''
-const length = 7
+let result = '';
+const length = 7;
 
 for (let i = 1; i < length; i++) {
 	for (let j = 0; j < i; j++) {
-		result += '*'
+		result += '*';
 	}
 
-	result += '\n'
+	result += '\n';
 }
 
-console.log(result)
+console.log(result);
 // *
 // **
 // ***
@@ -201,12 +201,12 @@ console.log(result)
 
 // метка
 first: for (let i = 0; i < 3; i++) {
-	console.log(`First level: ${i}`)
+	console.log(`First level: ${i}`);
 	for (let j = 0; j < 3; j++) {
-		console.log(`Second level: ${j}`)
+		console.log(`Second level: ${j}`);
 		for (let k = 0; k < 5; k++) {
-			if (k === 2) break first //continue first; тоже самое
-			console.log(`Three level: ${k}`)
+			if (k === 2) break first; //continue first; тоже самое
+			console.log(`Three level: ${k}`);
 		}
 	}
 }
