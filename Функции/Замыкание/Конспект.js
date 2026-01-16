@@ -30,6 +30,15 @@ function createIncrement() {
 	}
 
 	let message = `Count is ${count}`; // создаём строку message на основе текущего count
+	// Переменная "запоминает" текущее значение в момент создания.
+	// Шаблонная строка не обновляется сама.
+	//  🎮 Аналогия - Представь, что:
+	//  count — это число на табло, которое может меняться.
+	//  message — фотография этого табло.
+	//  Когда ты создаёшь message, ты делаешь фотографию в этот момент, когда на табло было 0.
+	//  Потом табло (count) меняется — 1, 2, 3…
+	//  Но фотография остаётся старой — на ней всё ещё “0”.
+	//  log() просто печатает эту старую фотографию.
 
 	function log() {
 		console.log(message); // выводим message в консоль
@@ -60,3 +69,91 @@ function log() {
 	let message = `Count is ${count}`; // теперь строка создаётся при каждом вызове log!
 	console.log(message);
 }
+
+function makeCounter(count) {
+	return function () {
+		// return ++count; // увеличиваем и возвращаем
+		return count++; //  возвращаем сначала 0 и затем увеличиваем переменную
+	};
+}
+
+let counter1 = makeCounter(0);
+let counter2 = makeCounter(0);
+
+console.log(counter1());
+console.log(counter1());
+
+console.log(counter2());
+console.log(counter2());
+
+// 1
+const createCounter = () => {
+	let counter = 0;
+	return () => {
+		return counter++;
+	};
+};
+
+const counter11 = createCounter();
+const counter22 = createCounter();
+
+console.log(counter11());
+console.log(counter11());
+console.log(counter11());
+console.log(counter22());
+
+// 2
+const createToggler = () => {
+	let toggler = false;
+	return () => {
+		toggler = !toggler;
+		return toggler;
+	};
+};
+
+const toggler1 = createToggler();
+const toggler2 = createToggler();
+
+console.log(toggler1());
+console.log(toggler1());
+console.log(toggler1());
+console.log(toggler2());
+console.log(toggler2());
+
+// 3 валидация
+const createValidator = regExp => {
+	return value => {
+		return regExp.test(value);
+	};
+};
+
+const nameValidator = createValidator(/\w+/gi);
+const phoneValidator = createValidator(/\d+/gi);
+const cardValidator = createValidator(/\d{4}\s\d{4}\s\d{4}\s\d{4}/gi);
+
+console.log(nameValidator('Vlad'));
+console.log(nameValidator('1234'));
+
+console.log(phoneValidator('Vlad'));
+console.log(phoneValidator('1234'));
+
+console.log(cardValidator('1111 2222 3333 4444'));
+console.log(cardValidator('1111 2222 3 333 4444'));
+
+// 4
+const createEncoder = number => {
+	return value => {
+		return value
+			.split('')
+			.map(symbol => {
+				return String.fromCharCode(symbol.charCodeAt(0) * number);
+			})
+			.join('');
+	};
+};
+
+const encoder1 = createEncoder(7);
+const encoder2 = createEncoder(9);
+
+console.log(encoder1('Vlad'));
+console.log(encoder2('1234'));
