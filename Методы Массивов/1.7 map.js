@@ -9,8 +9,8 @@
 const arr = [1, 2, 3, 4, 5];
 const squared = arr.map(num => num * num);
 
-console.log(squared)
-console.log(arr)
+console.log(squared);
+console.log(arr);
 // Не изменяет оригинальный массив (иммутабельный метод)
 // Удобен для трансформации данных
 // Создает новый массив, что может быть затратным для памяти при больших данных

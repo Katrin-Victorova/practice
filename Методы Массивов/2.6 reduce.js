@@ -10,5 +10,8 @@
 // Если начальное значение не передано, accomulator будет равен первому элементу массива,
 // а перебор начнется со второго элемента
 const numbers = [1, 2, 3, 4];
-const sum = numbers.reduce((acc, num) => acc + num, 0) // вместо 0 - "", {}, [], new Set(), любая структура данных
-console.log(sum)
+const sum = numbers.reduce((acc, num) => acc + num, 0); // вместо 0 - "", {}, [], new Set(), любая структура данных
+console.log(sum);
+
+// reduce = декларативный стиль
+// for = императивный стиль
